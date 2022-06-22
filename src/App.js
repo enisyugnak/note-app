@@ -46,6 +46,8 @@ export default function App() {
     
     function updateNote(text) {
 
+        // carry the updated note on top
+        
         setNotes(oldNotes => {
             let newArray = []
             for (let i = 0; i < oldNotes.length; i++) {
@@ -60,36 +62,20 @@ export default function App() {
             return newArray
         })
 
-
+        // updates notes in their positions
         // setNotes(oldNotes => oldNotes.map(oldNote => {
         //     return oldNote.id === currentNoteId
         //         ? { ...oldNote, body: text }
         //         : oldNote
         // }))
 
-      //  let upNote = notes.find(item=> currentNoteId === item.id)
-      //  setNotes(oldNotes => oldNotes.filter(item=> currentNoteId !== item.id ))
-      //  setNotes(oldNotes => [upNote,...oldNotes]);
     }
     
-    /**
-     * Challenge: complete and implement the deleteNote function
-     * 
-     * Hints: 
-     * 1. What array method can be used to return a new
-     *    array that has filtered out an item based 
-     *    on a condition?
-     * 2. Notice the parameters being based to the function
-     *    and think about how both of those parameters
-     *    can be passed in during the onClick event handler
-     */
 
     function deleteNote(event, noteId) {
         event.stopPropagation()
-        
+        // return all the notes except the one with the noteId
         setNotes(oldNotes=> oldNotes.filter(note=> note.id !== noteId))
-
-        console.log("delete",noteId)
     }
 
     function findCurrentNote() {
